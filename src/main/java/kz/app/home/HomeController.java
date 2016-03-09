@@ -21,7 +21,8 @@ public class HomeController {
 	private PostService postService;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String index(Principal principal) {
+	public String index(Principal principal, Model model) {
+		model.addAttribute("posts", postService.getAllPost());
 		return principal != null ? "home/homeSignedIn" : "home/index";
 	}
 

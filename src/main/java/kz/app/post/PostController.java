@@ -21,6 +21,6 @@ public class PostController {
         Post post = postService.getPost(id);
 
         model.addAttribute("post",post);
-        return "home/post";
+        return "posts/show";
     }
 }

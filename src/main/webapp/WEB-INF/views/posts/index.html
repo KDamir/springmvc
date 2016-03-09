@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" media="screen" th:href="@{/resources/css/bootstrap.min.css}"/>
+    <link href="../../../resources/css/clean-blog.min.css" rel="stylesheet" media="screen" th:href="@{/resources/css/clean-blog.min.css}"/>
+
+</head>
+
+<body>
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1" th:fragment="postfrag">
+        <div class="post-preview" th:each="post: ${posts}">
+            <a href="../posts/show.html" th:href="@{|/post/${post.id}|}">
+                <h2 class="post-title" th:text="${post.namePost}">
+                    Man must explore, and this is exploration at its greatest
+                </h2>
+                <h3 class="post-subtitle">
+                    Problems look mighty small from 150 miles up
+                </h3>
+            </a>
+            <p class="post-meta">Posted by <a href="#" th:text="${post.account.email}">Start Bootstrap</a> on September 24, 2014</p>
+        </div>
+        <hr></hr>
+        <!-- Pager -->
+        <ul class="pager">
+            <li class="next">
+                <a href="#">Older Posts &rarr;</a>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>

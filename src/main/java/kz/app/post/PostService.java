@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
+import java.util.List;
 
 /**
  * Created by kdamir on 3/7/16.
@@ -22,15 +23,15 @@ public class PostService {
 
     @PostConstruct
     protected void initilize() {
-//        Account demo = accountService.getAccountByUserName("user");
-//
-//        if(demo == null)
-//            return;
-//
-//        Post post = new Post("Some name post", demo, "Bla bla bla");
-//        save(post);
-//        demo.getPosts().add(post);
-//        accountService.save(demo);
+        Account demo = accountService.getAccountByUserName("user");
+
+        if(demo == null)
+            return;
+
+        Post post = new Post("Some name post", demo, "Bla bla bla");
+        save(post);
+        //demo.getPosts().add(post);
+        //accountService.save(demo);
     }
 
     @Transactional
@@ -52,6 +53,10 @@ public class PostService {
         }
 
         return post;
+    }
+
+    public List<Post> getAllPost() {
+        return postRepository.findAll();
     }
 
 

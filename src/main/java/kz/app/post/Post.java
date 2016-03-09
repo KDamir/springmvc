@@ -27,6 +27,15 @@ public class Post implements Serializable {
     @Type(type = "text")
     private String text;
 
+    public Post() {
+    }
+
+    public Post(String namePost, Account account, String text) {
+        this.namePost = namePost;
+        this.account = account;
+        this.text = text;
+    }
+
     public Long getId() {
         return id;
     }
