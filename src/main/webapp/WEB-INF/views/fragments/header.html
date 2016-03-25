@@ -20,7 +20,9 @@
             <ul class="nav navbar-nav">
                 <!--<li><a href="../home/index.html" th:href="@{/}">Home</a></li>-->
                 <li><a href="../home/about.html" th:href="@{/about}">Обо мне</a></li>
-                <li><a href="../home/post.html" th:href="@{/post/1}">Пример поста</a></li>
+                <li th:if="${#authorization.expression('isAuthenticated()')}">
+                    <a href="../posts/newpost.html" th:href="@{/newpost}">Написать пост</a>
+                </li>
                 <li><a href="../home/contact.html" th:href="@{/contact}">Контакты</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">

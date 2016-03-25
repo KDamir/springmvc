@@ -36,6 +36,10 @@ public class Post implements Serializable {
         this.text = text;
     }
 
+    public Post(Account account) {
+        this.account = account;
+    }
+
     public Long getId() {
         return id;
     }

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <title>Clean Blog - Sample Post</title>
+
+    <!-- Bootstrap Core CSS -->
+    <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" media="screen" th:href="@{/resources/css/bootstrap.min.css}"/>
+
+    <!-- Custom CSS -->
+    <!--<link href="css/clean-blog.min.css" rel="stylesheet">-->
+    <link href="../../../resources/css/clean-blog.css" rel="stylesheet" media="screen" th:href="@{/resources/css/clean-blog.css}"/>
+
+    <!-- jQuery -->
+    <!--<script src="js/jquery.js"></script>-->
+    <script src="../../../resources/js/jquery.js" th:src="@{/resources/js/jquery.js}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <!--<script src="js/bootstrap.min.js"></script>-->
+    <script src="../../../resources/js/bootstrap.min.js" th:src="@{/resources/js/bootstrap.min.js}"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <!--<script src="js/clean-blog.min.js"></script>-->
+    <!--<script src="../../../resources/js/clean-blog.min.js" th:src="@{/resources/js/clean-blog.min.js}"></script>-->
+
+    <script src="../../../resources/js/tinymce.min.js" th:src="@{/resources/js/tinymce.min.js}"></script>
+    <script type="text/javascript">
+        tinymce.init({
+            selector: '#editorarea',
+            height: 500,
+            plugins: [
+                'advlist autolink lists link image charmap print preview anchor',
+                'searchreplace visualblocks code fullscreen',
+                'insertdatetime media table contextmenu paste code'
+            ],
+            toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+            content_css: [
+                '//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
+                '//www.tinymce.com/css/codepen.min.css'
+            ]
+        });
+    </script>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav th:replace="fragments/header :: header">Header</nav>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('../../../resources/images/post-bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <!--<h1>Man must explore, and this is exploration at its greatest</h1>-->
+                        <!--<h2 class="subheading">Problems look mighty small from 150 miles up</h2>-->
+                        <!--<span class="meta">Posted by <a href="#">Start Bootstrap</a> on August 24, 2014</span>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <form class="form-narrow form-control-static" action="#" method="post" th:action="@{/create}" th:object="${postForm}">
+        <div class="container">
+        <div class="form-group">
+            <label for="inputHeader">Заголовок</label>
+            <input type="text" class="form-control" id="inputHeader" name="inpName" th:field="*{header}"/>
+        </div>
+
+        <div class="form-group">
+            <label for="editorarea">Текст</label>
+            <textarea class="form-control" id="editorarea" th:field="*{text}"/>
+        </div>
+
+        <div class="form-group">
+            <div class="col-lg-offset-2 col-lg-10">
+                <button type="submit" class="btn btn-default">Сохранить</button>
+            </div>
+        </div>
+        </div>
+    </form>
+
+    <hr/>
+
+    <!-- Footer -->
+    <footer>
+        <div th:replace="fragments/footer :: footer">&copy; 2013 The Static Templates</div>
+    </footer>
+
+
+</body>
+</html>
